@@ -73,15 +73,15 @@ class FieldEventNotify(unittest2.TestCase):
 
         logs = []
 
-        @component.adapter(IFoo, schema.Text)
-        def add_field_events(obj, field):
-            logs.append((obj, field))
+        @component.adapter(IFoo, schema.Text, schema.interfaces.IFieldUpdatedEvent)
+        def add_field_events(obj, field, event):
+            logs.append((obj, field, event))
 
         component.provideHandler(add_field_events)
 
         self.assertEqual(len(logs), 0)
         foo.testing = u'Bla'
         self.assertEqual(len(logs), 1)
-        event_inst, event_field = logs[0]
+        event_inst, event_field, event = logs[0]
         self.assertEqual(event_inst, foo)
         self.assertEqual(event_field, field)
