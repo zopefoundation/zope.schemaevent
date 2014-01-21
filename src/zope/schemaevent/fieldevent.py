@@ -6,4 +6,4 @@ import zope.component
 @zope.component.adapter(zope.schema.interfaces.IFieldEvent)
 def fieldEventNotify(event):
     """Event subscriber to dispatch FieldEvents to interested adapters."""
-    zope.component.subscribers((event.inst, event.field), None)
+    zope.component.subscribers((event.inst, event.field, event), None)
