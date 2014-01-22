@@ -1,2 +1,2 @@
-- Affinitic, Original Author
-- IMIO, client
+- Affinitic, Bubblenet - Original Author
+- IMIO - Client
