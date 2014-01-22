@@ -4,5 +4,8 @@ Changelog
 0.1-dev (unreleased)
 --------------------
 
+- Initial release
+  [jfroche]
+
 - Package created using templer
-  []
+  [jfroche]
