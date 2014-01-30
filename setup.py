@@ -21,7 +21,7 @@ setup(name='zope.schemaevent',
       classifiers=[
           "Programming Language :: Python",
       ],
-      keywords='',
+      keywords='zope schema event',
       author='Jean-Francois Roche',
       author_email='jfroche@affinitic.be',
       url='https://github.com/zopefoundation/zope.schemaevent',
