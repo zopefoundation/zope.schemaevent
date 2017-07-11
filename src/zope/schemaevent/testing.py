@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import zope.schemaevent
-from plone.testing.zca import ZCMLSandbox
+from zope.component.testlayer import ZCMLFileLayer
 
 
-ZC_LAYER = ZCMLSandbox(package=zope.schemaevent,
-                       filename='configure.zcml')
+ZC_LAYER = ZCMLFileLayer(zope.schemaevent,
+                         zcml_file='configure.zcml')
