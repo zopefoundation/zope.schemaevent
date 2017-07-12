@@ -4,8 +4,9 @@ Changelog
 0.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Add support for Python 3.4, 3.5, 3.6 and PyPy.
 
+- Drop support for Python 2.6.
 
 0.2 (2014-01-30)
 ----------------

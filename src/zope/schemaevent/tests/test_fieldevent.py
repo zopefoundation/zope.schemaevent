@@ -1,21 +1,17 @@
 # -*- coding: utf-8 -*-
-import unittest2
+import unittest
 from zope import interface
 from zope import component
 from zope import schema
 from zope.schemaevent.testing import ZC_LAYER
 
 
-class FieldEventNotify(unittest2.TestCase):
+class FieldEventNotify(unittest.TestCase):
     layer = ZC_LAYER
 
-    def _makeOne(self, field=None, name=None):
+    def _makeOne(self, field=None):
         from zope.schema import Text
-        if field is None:
-            field = Text(__name__='testing')
-        if name is None:
-            return self._getTargetClass()(field)
-        return self._getTargetClass()(field, name)
+        return self._getTargetClass()(field)
 
     def _getTargetClass(self):
         from zope.schema.fieldproperty import FieldProperty
@@ -23,11 +19,10 @@ class FieldEventNotify(unittest2.TestCase):
 
     def test_subscriber(self):
         from zope.schema import Text
-        from zope.schema._compat import u
         field = Text(
             __name__='testing',
-            description=u('DESCRIPTION'),
-            default=u('DEFAULT'),
+            description=u'DESCRIPTION',
+            default=u'DEFAULT',
             required=True,
         )
         prop = self._makeOne(field=field)
@@ -53,11 +48,10 @@ class FieldEventNotify(unittest2.TestCase):
 
     def test_filtered_handler(self):
         from zope.schema import Text
-        from zope.schema._compat import u
         field = Text(
             __name__='testing',
-            description=u('DESCRIPTION'),
-            default=u('DEFAULT'),
+            description=u'DESCRIPTION',
+            default=u'DEFAULT',
             required=True,
         )
         prop = self._makeOne(field=field)
@@ -66,8 +60,8 @@ class FieldEventNotify(unittest2.TestCase):
             """
             """
 
+        @interface.implementer(IFoo)
         class Foo(object):
-            interface.implements(IFoo)
             testing = prop
         foo = Foo()
 
@@ -82,6 +76,6 @@ class FieldEventNotify(unittest2.TestCase):
         self.assertEqual(len(logs), 0)
         foo.testing = u'Bla'
         self.assertEqual(len(logs), 1)
-        event_inst, event_field, event = logs[0]
+        event_inst, event_field, _event = logs[0]
         self.assertEqual(event_inst, foo)
         self.assertEqual(event_field, field)
