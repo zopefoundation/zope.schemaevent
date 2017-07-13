@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '0.3.dev0'
+version = '0.3'
 
 def read(name):
     with open(name, 'r') as f:
