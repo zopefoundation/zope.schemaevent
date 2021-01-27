@@ -10,7 +10,6 @@ class FieldEventNotify(unittest.TestCase):
     layer = ZC_LAYER
 
     def _makeOne(self, field=None):
-        from zope.schema import Text
         return self._getTargetClass()(field)
 
     def _getTargetClass(self):
@@ -67,7 +66,8 @@ class FieldEventNotify(unittest.TestCase):
 
         logs = []
 
-        @component.adapter(IFoo, schema.Text, schema.interfaces.IFieldUpdatedEvent)
+        @component.adapter(
+            IFoo, schema.Text, schema.interfaces.IFieldUpdatedEvent)
         def add_field_events(obj, field, event):
             logs.append((obj, field, event))
 
