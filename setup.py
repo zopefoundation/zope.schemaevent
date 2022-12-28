@@ -6,7 +6,7 @@ version = '1.0.dev0'
 
 
 def read(name):
-    with open(name, 'r') as f:
+    with open(name) as f:
         return f.read()
 
 

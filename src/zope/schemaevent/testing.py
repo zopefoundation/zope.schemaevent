@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from zope.component.testlayer import ZCMLFileLayer
 
 import zope.schemaevent

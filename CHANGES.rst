@@ -4,11 +4,9 @@ Changelog
 1.0 (unreleased)
 ----------------
 
-- Add support for Python 3.10, 3.11.
-
 - Drop support for Python 2.7, 3.4, 3.5, 3.6.
 
-- Add support for Python 3.7, 3.8 and 3.9.
+- Add support for Python 3.7, 3.8, 3.9, 3.10, 3.11.
 
 
 0.3 (2017-07-13)

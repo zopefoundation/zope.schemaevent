@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import zope.component
 import zope.schema
 

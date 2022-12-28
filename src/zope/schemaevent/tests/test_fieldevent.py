@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import unittest
 
 from zope import component
@@ -21,13 +20,13 @@ class FieldEventNotify(unittest.TestCase):
         from zope.schema import Text
         field = Text(
             __name__='testing',
-            description=u'DESCRIPTION',
-            default=u'DEFAULT',
+            description='DESCRIPTION',
+            default='DEFAULT',
             required=True,
         )
         prop = self._makeOne(field=field)
 
-        class Foo(object):
+        class Foo:
             testing = prop
         foo = Foo()
 
@@ -40,7 +39,7 @@ class FieldEventNotify(unittest.TestCase):
         component.provideHandler(add_field_event)
 
         self.assertEqual(len(logs), 0)
-        foo.testing = u'Bla'
+        foo.testing = 'Bla'
         self.assertEqual(len(logs), 1)
         event = logs[0]
         self.assertEqual(event.field, field)
@@ -50,8 +49,8 @@ class FieldEventNotify(unittest.TestCase):
         from zope.schema import Text
         field = Text(
             __name__='testing',
-            description=u'DESCRIPTION',
-            default=u'DEFAULT',
+            description='DESCRIPTION',
+            default='DEFAULT',
             required=True,
         )
         prop = self._makeOne(field=field)
@@ -61,7 +60,7 @@ class FieldEventNotify(unittest.TestCase):
             """
 
         @interface.implementer(IFoo)
-        class Foo(object):
+        class Foo:
             testing = prop
         foo = Foo()
 
@@ -75,7 +74,7 @@ class FieldEventNotify(unittest.TestCase):
         component.provideHandler(add_field_events)
 
         self.assertEqual(len(logs), 0)
-        foo.testing = u'Bla'
+        foo.testing = 'Bla'
         self.assertEqual(len(logs), 1)
         event_inst, event_field, _event = logs[0]
         self.assertEqual(event_inst, foo)
