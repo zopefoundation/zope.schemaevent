@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
-import zope.schema
 import zope.component
+import zope.schema
 
 
 @zope.component.adapter(zope.schema.interfaces.IFieldEvent)
