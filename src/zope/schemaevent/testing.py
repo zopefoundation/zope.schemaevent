@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-import zope.schemaevent
 from zope.component.testlayer import ZCMLFileLayer
+
+import zope.schemaevent
 
 
 ZC_LAYER = ZCMLFileLayer(zope.schemaevent,

@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import unittest
-from zope import interface
+
 from zope import component
+from zope import interface
 from zope import schema
 from zope.schemaevent.testing import ZC_LAYER
 
