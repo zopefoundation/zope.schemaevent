@@ -53,6 +53,7 @@ setup(name='zope.schemaevent',
       namespace_packages=['zope'],
       include_package_data=True,
       zip_safe=False,
+      python_requires='>=3.7',
       install_requires=[
           'setuptools',
           'zope.component',
